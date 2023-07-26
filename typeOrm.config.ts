@@ -18,5 +18,5 @@ export default new DataSource({
   password: configService.getOrThrow('MYSQL_PASSWORD'),
   synchronize: configService.getOrThrow('MYSQL_SYNCHRONIZE'),
   migrations: ['migrations/**'],
-  entities: [Item, Tag, Listing, Comment],
+  entities: ['dist/**/*.entity{.ts,.js}'],
 });
