@@ -6,3 +6,8 @@
 
 ## create migration
   npm run typeorm:create-migration --name=PublicItems
+## Run migrations
+  npm run typeorm:run-migrations
+
+## Revert migration
+  npm run typeorm:revert-migrations
