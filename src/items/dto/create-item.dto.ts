@@ -1,4 +1,5 @@
 import { CreateListingDto } from './creat-listing.dto';
+import { CreateCommentDto } from './create-comment.dto';
 import { CreateTagDto } from './create-tag.dto';
 
 export class CreateItemDto {
@@ -6,4 +7,5 @@ export class CreateItemDto {
   public: boolean;
   listing: CreateListingDto;
   tags: CreateTagDto[];
+  comments: CreateCommentDto[];
 }

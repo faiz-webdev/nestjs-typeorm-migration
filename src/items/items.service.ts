@@ -7,7 +7,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Listing } from './entities/listing.entity';
 import { Comment } from './entities/comment.entity';
 import { Tag } from './entities/tag.entity';
-import { async } from 'rxjs';
 
 @Injectable()
 export class ItemsService {
@@ -24,11 +23,15 @@ export class ItemsService {
       (createTagDto) => new Tag(createTagDto),
     );
 
+    const comments = createItemDto.comments.map(
+      (createCommentDto) => new Comment(createCommentDto),
+    );
+
     const item = new Item({
       ...createItemDto,
       listing,
-      comments: [],
       tags,
+      comments,
     });
 
     return await this.entityManager.save(item);
